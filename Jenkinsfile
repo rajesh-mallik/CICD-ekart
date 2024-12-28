@@ -65,7 +65,7 @@ pipeline {
 
         stage('Docker Build and Tag') {
             steps {
-                withDockerRegistry(credentialsId: 'fcaaed4a-5678-4547-b3dc-06eb5605ef83', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'fcaaed4a-5678-4547-b3dc-06eb5605ef83') {
                     sh "docker build -t gashok13193/cicd-ekart:latest -f docker/Dockerfile ."
                 }
             }
@@ -79,7 +79,7 @@ pipeline {
 
         stage('Docker Push') {
             steps {
-                withDockerRegistry(credentialsId: 'fcaaed4a-5678-4547-b3dc-06eb5605ef83', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'fcaaed4a-5678-4547-b3dc-06eb5605ef83') {
                     sh "docker push gashok13193/cicd-ekart:latest"
                 }
             }
